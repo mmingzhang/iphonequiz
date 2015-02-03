@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>iPhone quiz</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+      <div class="containter">
+        <div class="phone-img">
+          <div class="phone-normal"></div>
+          <div class="phone-final"></div>
+          <!--<img id="phone-pic" src="images/iphone.png"></img>-->
+        </div>
+        <h1 class="question-title">iPhone Knowlegde Quiz</h1><br><br>
+        <div class="question-text">
+          <h2>When did Steve Jobs announce the iPhone?</h2><br>
+        </div>
+        <div class="final-text">
+          <h1>Congratulation on finishing the quiz.</h1><br><br>
+          <h1 id="passcnt-text"></h1><br>
+        </div>
+        <div class="answers">
+          <form action="">
+            <input type="radio" name="answer" id="ans1">
+            <span class="itemtxt1">At the keynote speech for Macworld 2007</span><br><br>
+            <input type="radio" name="answer" id="ans2">
+            <span class="itemtxt2">At the opening event for the 2007 Worldwide Developers Conference</span><br><br>
+            <input type="radio" name="answer" id="ans3">
+            <span class="itemtxt3">At the 2008 "It's Only Rock n Roll" event</span><br><br>
+          </form>
+          </div>
+          <br>
+          <div class="button-img">
+            <div class="btn-next"></div>
+            <div class="btn-nextclick"></div>
+            <div class="btn-restart"></div>
+            <div class="btn-restartclick"></div>
+            <!--<img id="button-next" src="images/applebutton.png"></img>-->
+          </div>
+          <div class="last-result">
+            <p id="result-text"></p><br>
+          </div>
+          <div class="result-progress"> 
+            <div id="result1"></div>
+            <div id="result2"></div>
+            <div id="result3"></div>
+            <div id="result4"></div>
+            <div id="result5"></div>
+            <div id="result6"></div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+body {
+  background-image: url("../images/iphonequizbk.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 1em;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.containter {
+  width: 920px;
+  margin-top: 2em;
+  margin-left:5em;
+}
+
+.final-text, .phone-final, .btn-nextclick, .btn-restart, .btn-restartclick {
+  display: none;
+} 
+ 
+.phone-normal {
+  background-image: url('../images/iphone.png');
+}
+.phone-final {
+  background-image: url('../images/iphonefinal.png');
+}
+
+.btn-next {
+  background-image: url('../images/applebutton.png');
+}
+.btn-nextclick {
+  background-image: url('../images/applebuttonClicked.png');
+}
+.btn-restart {
+  background-image: url('../images/restartbtn.png');
+}
+.btn-restartclick {
+  background-image: url('../images/restartbtnclicked.png');
+}
+ 
+.phone-normal,  .phone-final{
+  background-repeat: no-repeat;
+  float: right;
+  width: 250px;
+  height: 460px;
+}
+
+.question-title {
+  text-align: center;
+  margin-top: 1.8em;
+  color: rgb(245,186,96);
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 2.3em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.question-text {
+  text-align: left;
+  margin-top: 0.1em;
+  color: rgb(245,186,96);
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+.answers {
+  text-align: left;
+  color: rgb(245,186,96);
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.2em;
+}
+
+#ans1,  #ans2, #ans3{
+  margin-top: 2.5em;
+}
+
+.final-text {
+  text-align: center;
+  margin-top: 1em;
+  color: rgb(247,197,121);
+  font-family: "Bradley Hand ITC", "Helvetica Neue", sans-serif;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.last-result {
+  width: 600px;
+  text-align: left;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.2em;
+  font-style: italic;
+  color: rgb(252,227,182);
+}
+
+#result1, #result2, #result3,
+#result4, #result5, #result6 {
+  display: inline-block;
+  background-color: rgb(252,227,182);
+  border-radius: 10px;
+  padding: 0px 20px 20px 0px;
+  margin-top: 1em;
+  margin-right: 2em;
+}
+
+.btn-next, .btn-nextclick {
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 110px;
+  float: right;
+  margin-right: 4em;
+}
+
+.btn-restart, .btn-restartclick {
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 110px;
+  float: right;
+  margin-right: 4em;
+  margin-top: 4em;
+}
+
+
+
+
