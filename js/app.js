@@ -5,14 +5,62 @@ $(document).ready(function() {
   var invalidnum = -1;
   var fail = 0;
   var pass = 1;
-  var quizanswers = [0, 2, 1, 2, 0, 1]; // answer number: 0, 1, 2  
-  var questions = new Array(totalselection); 
-  var answersarr = new Array(totalselection); 
-  var lastresults = new Array(totalselection); 
-  
   var useranswers = [];   //-1=invalid,0=fail,1=pass
+  var quiz = [
+    {
+      	question: 'When did Steve Jobs announce the iPhone?',
+      	option: ["At the keynote speech for Macworld",
+                "At the opening event for the 2007 Worldwide Developers Conference",
+                "At the 2008 It's Only \"Rock n Roll\" event"],
+    	answer: 0,
+    	result: "Steve Jobs shocked the audience of Macworld 2007 when he unveiled the iPhone."
+    },
+    {
+      	question: 'How much did the 8-gigabyte iPhone cost in the United ' +
+                   'States when it first hit store shelves?',
+      	option: ["$399",
+                 "$499",
+                 "$599"],
+    	answer: 2,
+    	result: "On launch, Apple fans could buy an iPhone with 8 gigabytes of storage " +
+                 "for $599. Apple also offered a 4-gigabyte version for $499."
+    },
+    {
+      	question:'In 2009, Apple introduced the first $99 iPhone. How much data can it store?',
+      	option: ["4 gigabytes",
+                 "8 gigabytes",
+                 "16 gigabytes"],
+    	answer: 1,
+    	result: "The 8 GB iPhone 3G is $99 with an AT&T contract in the United States. " +
+                 "Compare that to the first 8 GB iPhone, which originally cost $599!"
+    },
+    {
+      	question: 'What kind of camera does the iPhone 3GS have?',
+      	option: ["2 -megapixel camera",
+                 "2.7-megapixel camera",
+                 "3 -megapixel camera"],
+    	answer: 2,
+    	result: "The iPhone 3G has a 3-megapixel camera, an improvement over the iPhone 3G's 2-megapixel camera."
+    },
+    {
+      	question: 'Why did the FCC investigate Apple and AT&T in 2009?',
+      	option: ["Apple had refused to let any Google Voice applications in its App Store.",
+                 "The FCC was concerned that AT&T and Apple had created a monopoly.",
+                 "The FCC never investigated the two companies."],
+    	answer: 0,
+    	result: "The FCC wanted to know why Apple rejected applications using the Google Voice service."
+    },
+    {
+      	question: 'Which of these features isn\'t exclusive to the iPhone 3GS?',
+      	option: ["Voice control",
+                 "MMS support",
+                 "A compass"],
+    	answer: 1,
+    	result: "All current models of the iPhone support MMS services. Only the 3GS has voice control and a compass."
+    }
+  ];
 
-  InitialData();
+  ResetUserAnswers();
 
   // Click Next button
   $('.btn-nextclick').mouseup(function () {
@@ -87,7 +135,7 @@ $(document).ready(function() {
          return;
       }
 
-      if (sel === quizanswers[currentsel])
+      if (sel === quiz[currentsel].answer)
       {
         useranswers[currentsel] = pass;
         resultcolor = "rgb(107,135,69)"; // green
@@ -100,6 +148,7 @@ $(document).ready(function() {
 
       resultstr = "#result" + (currentsel + 1);
       $(resultstr).css('background-color', resultcolor);
+
 
       // uncheck the radio buttons
       $('#ans1').prop('checked', false);
@@ -116,11 +165,12 @@ $(document).ready(function() {
     var passcnt;
 
     if (currentsel+1 < totalselection) {
-        $('.question-text').text(questions[currentsel+1]);
-        $('.itemtxt1').text(answersarr[currentsel+1][0]);
-        $('.itemtxt2').text(answersarr[currentsel+1][1]);
-        $('.itemtxt3').text(answersarr[currentsel+1][2]);
-        $('#result-text').text(lastresults[currentsel]);
+        $('.question-text').text(quiz[currentsel+1].question);
+        //$('.itemtxt1').text(answersarr[currentsel+1][0]);
+        $('.itemtxt1').text(quiz[currentsel+1].option[0]);
+        $('.itemtxt2').text(quiz[currentsel+1].option[1]);
+        $('.itemtxt3').text(quiz[currentsel+1].option[2]);
+        $('#result-text').text(quiz[currentsel].result);
     }
     else {
       // complete quiz
@@ -131,7 +181,7 @@ $(document).ready(function() {
       finalstr = "You got " + passcnt + " of 6!";
 
       $('#passcnt-text').text(finalstr); 
-      $('#result-text').text(lastresults[totalselection-1]);
+      $('#result-text').text(quiz[totalselection-1].result);
       $('#result-text').css('margin-top', '4em');
 
       $('.phone-normal').hide();
@@ -153,10 +203,10 @@ $(document).ready(function() {
     var resultcolor = "rgb(252,227,182)";
 
     ResetUserAnswers();
-    $('.question-text').text(questions[0]);
-    $('.itemtxt1').text(answersarr[0][0]);
-    $('.itemtxt2').text(answersarr[0][1]);
-    $('.itemtxt3').text(answersarr[0][2]);
+    $('.question-text').text(quiz[0].question);
+    $('.itemtxt1').text(quiz[0].option[0]);
+    $('.itemtxt2').text(quiz[0].option[1]);
+    $('.itemtxt3').text(quiz[0].option[2]);
     $('#result-text').text('');
     $('#result-text').css('margin-top', '0em');
 
@@ -171,49 +221,6 @@ $(document).ready(function() {
       resultstr = "#result" + (i + 1);
       $(resultstr).css('background-color', resultcolor);
     }
-      
-  }
-
-  function InitialData ()
-  {
-    ResetUserAnswers();
-
-    questions[0] = "When did Steve Jobs announce the iPhone?";
-    questions[1] = "How much did the 8-gigabyte iPhone cost in the United " +
-                   "States when it first hit store shelves?";
-    questions[2] = "In 2009, Apple introduced the first $99 iPhone. How much data can it store?";
-    questions[3] = "What kind of camera does the iPhone 3GS have?";
-    questions[4] = "Why did the FCC investigate Apple and AT&T in 2009?";
-    questions[5] = "Which of these features isn't exclusive to the iPhone 3GS?";
-
-    lastresults[0] = "Steve Jobs shocked the audience of Macworld 2007 when he unveiled the iPhone.";
-    lastresults[1] = "On launch, Apple fans could buy an iPhone with 8 gigabytes of storage " +
-                     "for $599. Apple also offered a 4-gigabyte version for $499.";
-    lastresults[2] = "The 8 GB iPhone 3G is $99 with an AT&T contract in the United States. " +
-                     "Compare that to the first 8 GB iPhone, which originally cost $599!";
-    lastresults[3] = "The iPhone 3G has a 3-megapixel camera, an improvement over the iPhone 3G's 2-megapixel camera.";
-    lastresults[4] = "The FCC wanted to know why Apple rejected applications using the Google Voice service.";
-    lastresults[5] = "All current models of the iPhone support MMS services. Only the 3GS has voice control and a compass.";
-
-    // answer two dimensional array
-    answersarr[0] = ["At the keynote speech for Macworld",
-                  "At the opening event for the 2007 Worldwide Developers Conference",
-                  "At the 2008 It's Only \"Rock n Roll\" event"];
-    answersarr[1] = ["$399",
-                  "$499",
-                  "$599"];
-    answersarr[2] = ["4 gigabytes",
-                  "8 gigabytes",
-                  "16 gigabytes"];
-    answersarr[3] = ["2 -megapixel camera",
-                  "2.7-megapixel camera",
-                  "3 -megapixel camera"];
-    answersarr[4] = ["Apple had refused to let any Google Voice applications in its App Store.",
-                  "The FCC was concerned that AT&T and Apple had created a monopoly.",
-                  "The FCC never investigated the two companies."];
-    answersarr[5] = ["Voice control",
-                  "MMS support",
-                  "A compass"];            
   }
   
 });

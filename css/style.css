@@ -6,7 +6,7 @@ body {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.containter {
+.container {
   width: 920px;
   margin-top: 2em;
   margin-left:5em;
@@ -16,6 +16,24 @@ body {
   display: none;
 } 
  
+.phone-normal,  .phone-final{
+  position: relative; /* Makes absolute children measure from here */
+  background-repeat: no-repeat;
+  float: right;
+  width: 250px;
+  height: 460px;
+}
+
+.phone-text {
+  position: absolute; 
+  top: 300px;
+  left: 20%;
+  text-align: center;
+  color: white;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.5em;
+}
+
 .phone-normal {
   background-image: url('../images/iphone.png');
 }
@@ -34,13 +52,6 @@ body {
 }
 .btn-restartclick {
   background-image: url('../images/restartbtnclicked.png');
-}
- 
-.phone-normal,  .phone-final{
-  background-repeat: no-repeat;
-  float: right;
-  width: 250px;
-  height: 460px;
 }
 
 .question-title {
